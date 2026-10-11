@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background: #160b20;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at top left, #713b70, transparent 45%),
+    radial-gradient(circle at bottom right, #382b77, transparent 45%),
+    #160b20;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 45px 45px;
+  opacity: .25;
+  animation: sparkle 5s infinite alternate;
+}
+
+@keyframes sparkle {
+  from { opacity: .1; }
+  to { opacity: .4; }
+}
+
+nav {
+  padding: 22px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #ffacd0;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+button {
+  color: white;
+  background: #ffffff15;
+  border: 1px solid #ffacd080;
+  border-radius: 30px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background: #e75b9c60;
+  transform: translateY(-3px);
+}
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 45px 20px 80px;
+}
+
+.hero-content {
+  max-width: 700px;
+  animation: appear 1.3s ease;
+}
+
+.small-title {
+  color: #ffc4df;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+.heart {
+  font-size: 65px;
+  margin: 25px;
+  animation: beat 1.5s infinite;
+  filter: drop-shadow(0 0 20px #ff5caa);
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+h1 {
+  font-size: clamp(40px, 8vw, 75px);
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, white, #ff9acb, #c4b5fd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: #e4d6ed;
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  padding: 65px 7%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(27px, 5vw, 42px);
+  margin-bottom: 15px;
+}
+
+.pink {
+  color: #ff9fc9;
+}
+
+.description {
+  text-align: center;
+  max-width: 550px;
+  margin: 0 auto 40px;
+  color: #cdbddc;
+  line-height: 1.8;
+}
+
+/* GALERI 4 FOTO */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.photo {
+  padding: 12px;
+  background: #ffffff0d;
+  border: 1px solid #ffffff20;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: .4s;
+}
+
+.photo:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  border-color: #ff9fc9;
+  box-shadow: 0 10px 35px #ff5caa25;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 13px;
+  background: #35213d;
+}
+
+.photo h3 {
+  color: #ffb8d8;
+  margin: 15px 5px 8px;
+}
+
+.photo p {
+  color: #cdbddc;
+  margin: 0 5px 8px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* SURAT CINTA */
+.letter {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+  border: 1px solid #ffffff25;
+  border-radius: 24px;
+  padding: 35px 25px;
+  background: #ffffff0c;
+}
+
+.envelope {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.message {
+  display: none;
+  margin-top: 25px;
+  color: #f7eaf5;
+  text-align: left;
+  white-space: pre-line;
+  line-height: 2;
+}
+
+.message.show {
+  display: block;
+  animation: appear .7s ease;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  color: #cdbddc;
+  border-top: 1px solid #ffffff15;
+  font-size: 13px;
+}
+
+/* ANIMASI HATI */
+.floating-heart {
+  position: fixed;
+  bottom: -40px;
+  z-index: 5;
+  pointer-events: none;
+  animation: fly 6s linear forwards;
+}
+
+@keyframes fly {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  nav { padding: 18px 5%; }
+  .logo { font-size: 13px; }
+  nav button { padding: 10px 12px; font-size: 12px; }
+  .gallery { grid-template-columns: 1fr; max-width: 380px; }
+  .photo img { height: 300px; }
+  section { padding: 55px 6%; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- MUSIK: letakkan musik.mp3 di folder yang sama -->
+<audio id="music" src="panesa.mp3" loop preload="none"></audio>
+
+<nav>
+  <div class="logo">♡ FOR MY LOVE</div>
+  <button id="musicBtn" onclick="toggleMusic()">♫ Putar Musik</button>
+</nav>
+
+<!-- PEMBUKA -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="small-title">A LITTLE WEBSITE FOR YOU</div>
+    <div class="heart">💗</div>
+
+    <h1>For My<br>Favorite Person</h1>
+
+    <p>
+      Dari sekian banyak orang di dunia,<br>
+      aku bersyukur karena bisa mengenal kamu.<br>
+      Semoga halaman kecil ini bisa membuatmu tersenyum. ❤️
+    </p>
+
+    <button onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+      Lihat Kenangan Kita ↓
+    </button>
+  </div>
+</header>
+
+<!-- 4 FOTO -->
+<section id="memories">
+  <h2 class="section-title">Our <span class="pink">Memories</span> 📸</h2>
+
+  <p class="description">
+    Empat foto, empat kenangan, dan satu cerita yang istimewa.
+    Ganti foto di bawah ini dengan foto kalian.
+  </p>
+
+  <div class="gallery">
+
+    <div class="photo">
+      <img src="nisa.jpeg" alt="Kenangan pertama">
+      <h3>♡ First Memory</h3>
+      <p>Awal cerita yang indah.</p>
+    </div>
+
+    <div class="photo">
+      <img src="nisa2.jpeg" alt="Kenangan kedua">
+      <h3>♡ My Happiness</h3>
+      <p>Senyummu selalu punya cerita.</p>
+    </div>
+
+    <div class="photo">
+      <img src="nisa3.jpeg" alt="Kenangan ketiga">
+      <h3>♡ Special Moment</h3>
+      <p>Momen sederhana yang berarti.</p>
+    </div>
+
+    <div class="photo">
+      <img src="nisa4.jpeg" alt="Kenangan keempat">
+      <h3>♡ Always You</h3>
+      <p>Semoga ada banyak kenangan lagi.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SURAT CINTA -->
+<section>
+  <h2 class="section-title">A Letter <span class="pink">For You</span> 💌</h2>
+
+  <p class="description">
+    Ada sesuatu yang ingin aku sampaikan dari hati.
+  </p>
+
+  <div class="letter">
+    <div class="envelope">💌</div>
+    <h3>Untuk kamu yang spesial</h3>
+
+    <p style="color:#cdbddc;margin:15px 0 22px">
+      Klik tombol di bawah ini, ya.
+    </p>
+
+    <button id="letterBtn" onclick="openLetter()">
+      Buka Surat ❤️
+    </button>
+
+    <div class="message" id="message">
+Hai, sayangku ❤️
+
+Terima kasih sudah hadir di dalam ceritaku.
+Aku senang bisa mengenal kamu dan berbagi
+momen-momen kecil yang berarti.
+
+Aku memang bukan orang yang sempurna,
+tetapi aku ingin terus belajar menjadi
+seseorang yang lebih baik.
+
+Semoga kita bisa terus saling mendukung,
+saling menghargai, dan berbagi kebahagiaan.
+
+Jangan lupa bahagia, ya.
+Kamu adalah seseorang yang istimewa.
+
+With love, always. 💗
+    </div>
+  </div>
+</section>
+
+<!-- PENUTUP -->
+<section style="text-align:center">
+  <h2 class="section-title">
+    You Are My <span class="pink">Favorite</span> 🌙
+  </h2>
+
+  <p class="description">
+    Kalau aku bisa mengulang satu momen,
+    aku ingin mengulang momen yang membuat kita tersenyum.
+  </p>
+
+  <button onclick="surprise()">Klik Untuk Kejutan 💖</button>
+
+  <p id="surpriseText"
+     style="margin-top:25px;color:#ffb8d8;font-size:18px"></p>
+</section>
+
+<footer>
+  Made with ❤️ just for you.
+  <br><br>
+  Forever in my little universe ✨
+</footer>
+
+<script>
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+
+async function toggleMusic() {
+  if (music.paused) {
+    try {
+      await music.play();
+      musicBtn.textContent = "♫ Jeda Musik";
+    } catch (error) {
+      alert("Musik tidak ditemukan. Pastikan musik.mp3 ada di folder yang sama dengan index.html.");
+    }
+  } else {
+    music.pause();
+    musicBtn.textContent = "♫ Putar Musik";
+  }
+}
+
+music.addEventListener("play", () => {
+  musicBtn.textContent = "♫ Jeda Musik";
+});
+
+music.addEventListener("pause", () => {
+  musicBtn.textContent = "♫ Putar Musik";
+});
+
+function openLetter() {
+  const message = document.getElementById("message");
+  const btn = document.getElementById("letterBtn");
+
+  message.classList.toggle("show");
+
+  btn.textContent = message.classList.contains("show")
+    ? "Tutup Surat 💌"
+    : "Buka Surat ❤️";
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  const symbols = ["💗", "💖", "💕", "💘", "✨"];
+
+  heart.className = "floating-heart";
+  heart.textContent = symbols[
+    Math.floor(Math.random() * symbols.length)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (18 + Math.random() * 18) + "px";
+  heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 8500);
+}
+
+setInterval(createHeart, 1200);
+
+function surprise() {
+  document.getElementById("surpriseText").textContent =
+    "Kamu itu istimewa. Jangan pernah lupa untuk tersenyum! 💗";
+
+  for (let i = 0; i < 25; i++) {
+    setTimeout(createHeart, i * 100);
+  }
+}
+</script>
+
+</body>
+</html>
